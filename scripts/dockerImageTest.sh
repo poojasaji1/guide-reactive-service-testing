@@ -13,7 +13,7 @@ sed -i "\#</containerRunOpts>#a<install><runtimeUrl>https://public.dhe.ibm.com/i
 cat system/pom.xml inventory/pom.xml
 
 sed -i "s;FROM icr.io/appcafe/open-liberty:kernel-slim-java11-openj9-ubi;FROM cp.stg.icr.io/cp/olc/open-liberty-daily:full-java11-openj9-ubi;g" system/Dockerfile inventory/Dockerfile
-sed -i "s;RUN features.sh;#RUN features.sh;g" system/Dockerfile bff/Dockerfile frontend/Dockerfile
+sed -i "s;RUN features.sh;#RUN features.sh;g" system/Dockerfile inventory/Dockerfile
 cat system/Dockerfile inventory/Dockerfile
 
 echo "$DOCKER_PASSWORD" | sudo docker login -u "$DOCKER_USERNAME" --password-stdin cp.stg.icr.io
